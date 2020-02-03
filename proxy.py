@@ -19,7 +19,6 @@
 #
 # Jann Westphal 02/2020
 #
-
 import sys
 import time
 import socket
@@ -33,15 +32,13 @@ buffer_size = 4096
 proxyPort = 9800
 proxyBinding = '0.0.0.0'
 proxyForwardTo = ('127.0.0.1', 8081)
-proxyAuthentication = False # Re-implement authenticate() and verifyUserAccount(), if used!
-
+proxyAuthentication = False # Re-implement authenticate() and verifyUserAccount(), if use!
 
 class Authenticate:
     #
-    # This Authenticate implementation works with 2 parameters:
+    # This basic Authenticate implementation works with 2 parameters:
     # - 2 URL-arguments (uname = User name, upass = User Password)
     # Sample-URL: http://192.168.1.17:9800/?uname=admin&upass=test1234
-    #
 
     def __init__(self):
         self.authenticated = False
@@ -89,7 +86,6 @@ class Authenticate:
             print(e)
             return ''
 
-
 class Forward:
 
     def __init__(self):
@@ -103,7 +99,6 @@ class Forward:
         except Exception as e:
             print(e)
             return False
-
 
 class Proxy:
 
@@ -186,11 +181,9 @@ class Proxy:
         # print data
         self.channel[self.s].send(data)
 
-
 if __name__ == '__main__':
 
-    print(' * PFP 1.0 =-')
-    print(' * Port Forwarding Proxy')
+    print(' * ForwardProxy')
     proxy = Proxy(proxyBinding, proxyPort)
     print(' * Listening on: ' + str(proxyBinding) + ' : ' + str(proxyPort))
     print(' * Forwarding to: ' + str(proxyForwardTo[0]) + ' : ' + str(proxyForwardTo[1]))
