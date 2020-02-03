@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# PFP 1.0 =-
+# ForwardProxy
 # Port Forwarding Proxy
 #
 # This is a port-forwarding proxy.
